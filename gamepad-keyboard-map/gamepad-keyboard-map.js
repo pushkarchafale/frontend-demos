@@ -16,17 +16,17 @@
             keyName;
 
         for (var keyName in keyMap) {
-            console.log(!pressedKeys[keyName] && gamepadButtons[keyMap[keyName]].pressed, pressedKeys[keyName], gamepadButtons[keyMap[keyName]].pressed);
+            //console.log(!pressedKeys[keyName] && gamepadButtons[keyMap[keyName]].pressed, pressedKeys[keyName], gamepadButtons[keyMap[keyName]].pressed);
             if (pressedKeys[keyName]) {
                 if (!gamepadButtons[keyMap[keyName]].pressed) {
                     //console.log(keyName);
-                    //keyup(Number(keyName));     //Add your keyup trigger events here. ForEx. $('#gameArea').keyUp({ keyCode : keyName });
+                    keyup(Number(keyName));     //Add your keyup trigger events here. ForEx. $('#gameArea').keyUp({ keyCode : keyName });
                     delete pressedKeys[keyName];
                 }
             } else {
                 if (gamepadButtons[keyMap[keyName]].pressed) {
-                    console.log(keyName);
-                    //keydown(Number(keyName)); //Add your keydown trigger events here. ForEx. $('#gameArea').keyDown({ keyCode : keyName });
+                    //console.log(keyName);
+                    keydown(Number(keyName)); //Add your keydown trigger events here. ForEx. $('#gameArea').keyDown({ keyCode : keyName });
                     pressedKeys[keyName] = true;
                 }
             }
